@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  base: '/',
   optimizeDeps: {
     exclude: ['lucide-react']
   },
@@ -12,6 +13,12 @@ export default defineConfig({
         manualChunks: {
           pdfjs: ['pdfjs-dist']
         }
+      },
+      assetFileNames: (assetInfo) => {
+        if (assetInfo.name === 'index.html') {
+          return 'index.html';
+        }
+        return 'assets/[name]-[hash][extname]';
       }
     }
   },
