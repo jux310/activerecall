@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.backface-hidden {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.transform-style-preserve-3d {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.rotate-y-180 {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
