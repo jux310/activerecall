@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { GraduationCap } from 'lucide-react';
 import { PDFUploader } from './components/PDFUploader';
-import { PDFHistory } from './components/PDFHistory';
 import { UnitSection } from './components/UnitSection';
 import { useStudyStore } from './store/studyStore';
 import { LoginButton } from './components/LoginButton';
@@ -74,7 +73,6 @@ function App() {
                 and concepts to help you study effectively.
               </p>
               <PDFUploader />
-              {user && <PDFHistory userId={user.uid} />}
             </div>
           </div>
         ) : (

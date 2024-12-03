@@ -5,15 +5,13 @@ import { extractTextFromPDF } from '../lib/pdf';
 import { generateUnitsAndFlashcards } from '../lib/openai';
 import { setPDFText } from '../lib/pdfStorage';
 import { useStudyStore } from '../store/studyStore';
-import { addPDFToHistory } from '../lib/pdfHistory';
-import { auth } from '../lib/firebase';
 
 export function PDFUploader() {
   const setStudyData = useStudyStore((state) => state.setStudyData);
   const [loading, setLoading] = React.useState(false);
 
   const onDrop = useCallback(async (acceptedFiles: File[]) => {
-    if (acceptedFiles.length === 0 || !auth.currentUser) return;
+    if (acceptedFiles.length === 0) return;
     
     const file = acceptedFiles[0];
     if (file.size > 10 * 1024 * 1024) {
@@ -34,7 +32,6 @@ export function PDFUploader() {
         throw new Error('Could not generate study materials from this PDF. Please try a different document.');
       }
       
-      await addPDFToHistory(file.name, auth.currentUser.uid);
       setStudyData(result);
     } catch (error) {
       console.error('Error processing PDF:', error);
