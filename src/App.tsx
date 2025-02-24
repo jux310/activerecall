@@ -43,10 +43,10 @@ function App() {
       <header className="bg-white shadow-sm sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            <div className="flex items-center">
+            <a href="https://activerecall.online/" className="flex items-center">
               <GraduationCap className="w-8 h-8 text-indigo-600 mr-3" />
               <h1 className="text-2xl font-bold text-gray-900">Active Recall Study</h1>
-            </div>
+            </a>
             <LoginButton isLoggedIn={!!user} userEmail={user?.email} />
           </div>
         </div>
